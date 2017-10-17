@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Chat List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div ion-item *ngFor="let item of items" >
+      <!--<ion-icon [name]="item.icon" item-left></ion-icon>-->
+      {{item.Content}}
+
+      <button ion-button icon-only item-right (click)="itemEdited($event)" >
+        <ion-icon name="create"></ion-icon>
+      </button>
+      <button ion-button icon-only item-right (click)="itemDeleted($event, item.MessageID)">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </div>
+  </ion-list>
+  <div *ngIf="selectedItem" padding>
+    You navigated here from <b>{{selectedItem.title}}</b>
+  </div>
+</ion-content>
